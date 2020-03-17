@@ -42,7 +42,7 @@ def selection_sort( arr ):
 
     return arr
 
-# print(selection_sort(yeet))
+print(selection_sort(yeet))
 
 
 # arr = [1,5,3,4,2]
