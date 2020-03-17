@@ -32,8 +32,8 @@ def selection_sort( arr ):
         # TO-DO: swap
         # tuple swap
         # basically make the true smallest number swap values, and therefore positions, with the assumed smallest value
-        print(f"SWAP-:{arr[smallest_index]} will replace :{arr[i]}")
-        print(f"SWAP-:{arr[i]} will replace :{arr[smallest_index]}")
+        print(f"SWAP-:{arr[smallest_index]} in position:{smallest_index} will replace :{arr[i]} in position:{i}")
+        print(f"SWAP-:{arr[i]} in position:{i} will replace :{arr[smallest_index]} in position:{smallest_index}")
 
         
         arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
@@ -42,7 +42,7 @@ def selection_sort( arr ):
 
     return arr
 
-print(selection_sort(yeet))
+# print(selection_sort(yeet))
 
 
 # arr = [1,5,3,4,2]
@@ -54,15 +54,15 @@ def bubble_sort( arr ):
     for x in range(0, len(arr)-1):
 
         for j in range(0, len(arr)-1):
-            #when left if bigger than right
-            if arr[j] > arr[j+1]:
-                #put the smaller at the beginning of the array
+            #when the right value is smaller
+            if arr[j +1] < arr[j]:
+                #make the smaller value and bigger value switch posisions
                 #since this parent loop goes through each parent element we can just change the array using this child loops indexes
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 
     return arr
 
-# print(bubble_sort(arr))
+print(bubble_sort(arr))
 
 
 # STRETCH: implement the Count Sort function below
