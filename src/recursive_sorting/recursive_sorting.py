@@ -1,21 +1,33 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 
-one = [1,2,4,5]
-two = [1,2,5,6]
 
 def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     # TO-DO
 
+    a = 0
+    b = 0 
 
-    for y in range(0, len(merged_arr)-1)
-    
-        if arrA[y] < arrB[y]
-
-            #switch
-          
-    
+    for k in range(0, elements):
+        # compare A and B 
+        # if a is out of range, push b and iterate
+        if a >= len(arrA):
+            merged_arr[k] = arrB[b]
+            b +=1
+        # if b is out of range, push a and iterate
+        elif b >= len(arrB):
+            merged_arr[k] = arrA[a]
+            a += 1
+        # if a is bigger, put it in array and iterate both
+        elif arrA[a] < arrB[b]:
+            merged_arr[k] = arrA[a]
+            a+=1
+        # if b is bigger put it in array and iterate both
+        else:
+            merged_arr[k] = arrB[b]
+            b+=1
+        
     return merged_arr
 
 
@@ -25,23 +37,16 @@ yeet = [1,5,3,90,30,22,6,78]
 
 def merge_sort( arr ):
 
-    
+    if len(arr) > 1:
 
-    if len(arr) > 1 :
-        
-        # TO-DO
-        mid = len(arr)//2
-        front = arr[:mid]
-        back = arr[mid:]
+        left = merge_sort(arr[0:len(arr)//2])
 
-        merge(front, back)
+        right = merge_sort(arr[len(arr)//2: ])
 
-        print(f"front:{front}, back:{back}")
-        merge_sort(front)
-        merge_sort(back)
 
-    else:
-        return 'done'
+        arr = merge(left,right)
+
+    return arr
 
 merge_sort(yeet)
 
